@@ -33,9 +33,9 @@ export const slides = [
 
 export const aboutMe = {
   title:
-    "I’m a passionate frontend developer specializing in React Native and React.js, creating seamless web and mobile experiences with clean, user-focused design",
+    "I’m a passionate MERN Stack Developer specializing in React Native, React.js, Node.js, Express.js, MongoDB, and MySQL — building modern, scalable, and high-performance applications.",
   description:
-    "My expertise as a frontend developer who loves creating fast and responsive apps with React Native and React.js. I enjoy turning ideas into simple, user-friendly designs that work smoothly on both web and mobile. My focus is on writing clean code and building apps that are not only useful but also enjoyable for people to use.",
+    "I love creating full-stack solutions that combine powerful backends with smooth, responsive frontends. My expertise spans React Native and React.js for crafting seamless user interfaces, and Node.js, Express.js, MongoDB, and MySQL for building secure, scalable, and efficient server-side architectures. I focus on writing clean, maintainable code and delivering apps that provide real value to users.",
   hobby:
-    "Beyond coding, I bring strong analytical skills, excellent communication abilities, and a collaborative approach to every project. I believe in writing clean, maintainable code and creating user experiences that make a difference.",
+    "Beyond coding, I bring strong problem-solving skills, clear communication, and a team-focused mindset to every project. I’m passionate about continuous learning and creating impactful digital products that help businesses grow.",
 };

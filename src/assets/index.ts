@@ -19,6 +19,9 @@ import EDU from "./images/edu.jpg";
 import DiveIn from "./images/divein.jpg";
 import Portfolio from "./images/portfolio.jpg";
 import Macca from "./images/macca.jpg";
+import Node from "./images/node.png";
+import MySQL from "./images/mySQL.png";
+import Task from "./images/task.jpg";
 
 export const Images = {
   Hero,
@@ -42,4 +45,7 @@ export const Images = {
   EDU,
   Portfolio,
   Macca,
+  Node,
+  MySQL,
+  Task,
 };

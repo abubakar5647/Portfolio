@@ -12,7 +12,7 @@ export function Experience() {
       >
         <div className="absolute inset-0 bg-[#0d1224]/80"></div>
         <div className="relative max-w-6xl mx-auto">
-          <div className="flex justify-center lg:py-8">
+          <div className="flex justify-center py-8 ">
             <div className="flex  items-center">
               <span className="w-24 h-[2px] bg-[#1a1443]"></span>
               <span className="bg-[#1a1443] w-fit text-white p-2 px-5 text-xl rounded-md">
@@ -22,7 +22,7 @@ export function Experience() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
             {skillsData.map((item) => (
               <div
                 key={item.id}
@@ -49,7 +49,7 @@ export function Experience() {
           </div>
 
           <div className="w-full overflow-hidden relative">
-            <div className="flex animate-scrollX">
+            <div className="animate-scrollX">
               {skill.concat(skill).map((s, index) => (
                 <div
                   key={index}

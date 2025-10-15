@@ -158,7 +158,9 @@ html {
 }
 
 .animate-scrollX {
-  animation: scrollX 5s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: scrollX 25s linear infinite;
 }
 .animate-scrollX:hover {
   animation-play-state: paused;

@@ -1,10 +1,7 @@
 export const personalData = {
   name: "Muhammad Abubakar",
-  description: `I’m a passionate React Native Developer and Frontend Engineer 
-  focused on crafting clean, user-friendly, and scalable applications. 
-  With experience in JavaScript, React, and modern UI frameworks, 
-  I love turning ideas into reality through code.`,
-  githhub: "https://github.com/abubakar5647",
+  description: `a dedicated MERN Stack Developer specializing in building full-stack web and mobile applications using React Native, React.js, Node.js, Express.js, MongoDB, and MySQL. I focus on creating modern, scalable, and high-performance solutions with clean, maintainable code.`,
+  github: "https://github.com/abubakar5647",
   facebook: "https://www.facebook.com/abubakar.ansari.967703/",
   linkedin: "https://www.linkedin.com/in/muhammad-abubakar-bb2a46304/",
   gmail: "abubakardev62@gmail.com",

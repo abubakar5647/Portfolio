@@ -61,12 +61,14 @@ export function About() {
           </div>
         </div>
 
-        <div className="border border-slate-700 mt-16 px-10 py-8 w-[80%] mx-auto text-center space-y-6 rounded-xl">
-          <h1 className="text-white text-3xl font-semibold">{aboutMe.title}</h1>
-          <p className="text-gray-300 text-lg leading-relaxed">
+        <div className="border border-slate-700 mt-16 px-6 sm:px-10 py-6 sm:py-8 w-[90%] sm:w-[80%] mx-auto text-center space-y-4 sm:space-y-6 rounded-xl">
+          <h1 className="text-white text-2xl sm:text-3xl font-semibold leading-snug">
+            {aboutMe.title}
+          </h1>
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
             {aboutMe.description}
           </p>
-          <p className="text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
             {aboutMe.hobby}
           </p>
         </div>
