@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 
 export function HeroSection() {
   const roles = [
+    "MERN Stack Developer",
     "React Native Developer",
     "React.js Developer",
-    "Next.js Developer",
+    "Node.js Developer",
   ];
   const [index, setIndex] = useState(0);
 
@@ -37,7 +38,7 @@ export function HeroSection() {
       <Navbar />
       <section className="flex items-center justify-center h-screen text-center">
         <div>
-          <h1 className="mt-30 text-6xl bg-gradient-main font-bold bg-clip-text text-transparent drop-shadow-[0_0_30px_white] animate-float">
+          <h1 className="mt-20 sm:mt-30 text-3xl sm:text-5xl lg:text-6xl bg-gradient-main font-bold bg-clip-text text-transparent drop-shadow-[0_0_20px_white] sm:drop-shadow-[0_0_30px_white] animate-float">
             {personalData.name}
           </h1>
 

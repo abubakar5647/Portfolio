@@ -84,4 +84,22 @@ export const projects = [
       "Google Map",
     ],
   },
+  {
+    id: 6,
+    title: "Task Manager",
+    status: "Completed",
+    image: Images.Task,
+    description:
+      "Task Manager is a full-featured MERN Stack application designed to help teams and individuals manage their work efficiently. Users can create tasks, assign priorities, track progress, and update statuses in real time. With a clean and responsive UI, it provides a smooth workflow experience for task and project management.",
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Axios",
+    ],
+  },
 ];

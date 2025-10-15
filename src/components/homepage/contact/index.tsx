@@ -38,7 +38,7 @@ export default function Contact() {
 
   const socialLinks = [
     {
-      href: personalData.githhub,
+      href: personalData.github,
       icon: <Github className="h-6 w-6 text-[#0f1729]" />,
     },
     {
@@ -75,6 +75,11 @@ export default function Contact() {
       return;
     }
     console.log("Form submitted:", formData);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   const formFields = [
