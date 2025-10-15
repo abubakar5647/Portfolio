@@ -18,7 +18,7 @@ export default function Projects() {
         <div className="absolute inset-0 bg-[#0d1224]/80"></div>
         <div className="relative z-10 sm:px-6 w-[85%] m-auto ">
           {/* Section Heading */}
-          <div className="flex justify-center lg:py-8">
+          <div className="flex justify-center pb-8">
             <div className="flex flex-wrap items-center justify-center gap-3">
               <span className="hidden sm:block w-16 sm:w-24 h-[2px] bg-[#1a1443]"></span>
               <span className="bg-[#1a1443] text-white px-4 sm:px-6 py-2 text-lg sm:text-xl rounded-md text-center">
