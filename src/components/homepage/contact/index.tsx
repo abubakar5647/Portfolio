@@ -31,6 +31,10 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (formData.message === "") {
+      toast.error("Message is required!");
+      return;
+    }
     setSubmitted(true);
 
     if (!formData.name || !validateEmail(formData.email)) {
