@@ -31,7 +31,7 @@ export function About() {
           {AboutCardsData.map((card) => (
             <div
               key={card.id}
-              className="transition-transform duration-300 hover:translate-y-3"
+              className={`transition-transform duration-300 hover:translate-y-3 card-animate delay-${index % 4}`}
             >
               <AboutCard
                 key={card.id}

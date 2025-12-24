@@ -16,12 +16,13 @@ import Typescript from "./images/typescript.png";
 import Git from "./images/git.png";
 import Rental from "./images/rental.png";
 import EDU from "./images/edu.jpg";
-import DiveIn from "./images/divein.jpg";
+import DiveIn from "./images/divein.png";
 import Portfolio from "./images/portfolio.jpg";
 import Macca from "./images/macca.jpg";
 import Node from "./images/node.png";
 import MySQL from "./images/mySQL.png";
 import Task from "./images/task.jpg";
+import Buycx from "./images/buycx.jpg";
 
 export const Images = {
   Hero,
@@ -48,4 +49,5 @@ export const Images = {
   Node,
   MySQL,
   Task,
+  Buycx,
 };

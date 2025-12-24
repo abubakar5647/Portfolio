@@ -3,6 +3,41 @@ import { Images } from "@/assets";
 export const projects = [
   {
     id: 1,
+    title: "BUYCEX",
+    status: "In Development",
+    image: Images.Buycx,
+    description:
+      "Worked on a cryptocurrency trading platform using ThinkPHP and React.js. Developed the P2P trading and Spot trading modules with real-time updates, escrow handling, order book integration, and trade execution. Focused on clean UI/UX, API integration, WebSocket communication, and overall performance optimization.",
+    technologies: [
+      "React js",
+      "ThinkPHP",
+      "Laravel",
+      "Socket.io",
+      "Web sockets",
+      "Redis",
+      "Redux",
+      "Socila Login",
+    ],
+  },
+  {
+    id: 2,
+    title: "DiveInMobile",
+    status: "Completed",
+    image: Images.DiveIn,
+    description:
+      "DiveInMobile is a social interaction app where users create unique profiles, connect by sending and accepting friend requests, and collaborate in groups. Group admins can send prompts that are instantly shared with all members, allowing replies, emoji reactions, and threaded responses. With each new prompt, the previous one is archived, keeping conversations organized. Powered by Firebase Firestore, DiveInMobile ensures real-time, seamless communication within friend-based groups.",
+    technologies: [
+      "React Native",
+      "Expo Cli",
+      "Redux toolkit",
+      "Supabase",
+      "Socila Login",
+      "Typescript",
+      "Google Map",
+    ],
+  },
+  {
+    id: 3,
     title: "Rental Car Mobile",
     status: "In Development",
     image: Images.Rental,
@@ -23,7 +58,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 4,
     title: "Education App",
     status: "Completed",
     image: Images.EDU,
@@ -40,7 +75,7 @@ export const projects = [
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Portfolio",
     status: "Completed",
     image: Images.Portfolio,
@@ -49,24 +84,7 @@ export const projects = [
     technologies: ["React Js", "Tailwind Css", "Typescript", "Javascript"],
   },
   {
-    id: 4,
-    title: "DiveInMobile",
-    status: "Completed",
-    image: Images.DiveIn,
-    description:
-      "DiveInMobile is a social interaction app where users create unique profiles, connect by sending and accepting friend requests, and collaborate in groups. Group admins can send prompts that are instantly shared with all members, allowing replies, emoji reactions, and threaded responses. With each new prompt, the previous one is archived, keeping conversations organized. Powered by Firebase Firestore, DiveInMobile ensures real-time, seamless communication within friend-based groups.",
-    technologies: [
-      "React Native",
-      "Expo Cli",
-      "Redux toolkit",
-      "Supabase",
-      "Socila Login",
-      "Typescript",
-      "Google Map",
-    ],
-  },
-  {
-    id: 5,
+    id: 6,
     title: "Macca-app",
     status: "In Development",
     image: Images.Macca,
@@ -85,7 +103,7 @@ export const projects = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Task Manager",
     status: "Completed",
     image: Images.Task,

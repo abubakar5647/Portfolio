@@ -1,3 +1,4 @@
+import { ToastContainer } from "react-toastify";
 import { About } from "./components/homepage/about";
 import Contact from "./components/homepage/contact";
 import { Experience } from "./components/homepage/Experience";
@@ -14,6 +15,7 @@ function App() {
       <Projects />
       <Contact />
       <ScrollToTopButton />
+      <ToastContainer />
     </>
   );
 }

@@ -1,3 +1,5 @@
+import { Mail, Phone, MapPin } from "lucide-react";
+
 export const personalData = {
   name: "Muhammad Abubakar",
   description: `a dedicated MERN Stack Developer specializing in building full-stack web and mobile applications using React Native, React.js, Node.js, Express.js, MongoDB, and MySQL. I focus on creating modern, scalable, and high-performance solutions with clean, maintainable code.`,
@@ -10,3 +12,18 @@ export const personalData = {
   message:
     "If you have any questions or concerns, please don't hesitate to contact me.I am open to any work opportunities that align with my skills and interests.",
 };
+
+export const contactInfo = [
+  {
+    icon: <Mail className="h-6 w-6 text-[#0f1729]" />,
+    label: personalData.gmail,
+  },
+  {
+    icon: <Phone className="h-6 w-6 text-[#0f1729]" />,
+    label: `+${personalData.contact}`,
+  },
+  {
+    icon: <MapPin className="h-6 w-6 text-[#0f1729]" />,
+    label: personalData.location,
+  },
+];

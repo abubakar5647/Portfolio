@@ -12,8 +12,9 @@ interface Project {
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+  index: number;
 }
-export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+export default function ProjectCard({ project, onClick, index }: ProjectCardProps) {
   const statusStyles: Record<Project["status"], string> = {
     "In Development":
       "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
@@ -21,14 +22,21 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
     "In Progress": "bg-blue-500/20 text-blue-400 border border-blue-500/30",
   };
 
+  const delayClass = `delay-${index % 3}`;
+
   return (
     <div
       onClick={onClick}
       className={cn(
-        "group relative cursor-pointer rounded-2xl overflow-hidden bg-slate-800 transition-transform duration-300 hover:scale-105"
+        "group relative cursor-pointer rounded-2xl overflow-hidden bg-slate-800",
+        "transition-all duration-500 ease-out",
+        "hover:scale-[1.04] hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20",
+        "hover:rotate-[0.5deg]",
+        "card-animate",
+        delayClass
       )}
     >
-      <div className="absolute inset-0 z-10 bg-purple-600/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="absolute inset-0 z-10 bg-purple-600/20 opacity-0 transition-opacity duration-300" />
 
       <span
         className={cn(

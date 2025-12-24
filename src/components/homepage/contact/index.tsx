@@ -1,17 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { personalData } from "@/utils/personal-data";
-import {
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-} from "lucide-react";
+import { contactInfo, personalData } from "@/utils/personal-data";
+import { socialLinks } from "@/utils/socialLinks";
+import { Send } from "lucide-react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,41 +13,8 @@ export default function Contact() {
     email: "",
     message: "",
   });
+  const [submitted, setSubmitted] = useState(false);
   const [emailError, setEmailError] = useState(false);
-
-  const contactInfo = [
-    {
-      icon: <Mail className="h-6 w-6 text-[#0f1729]" />,
-      label: personalData.gmail,
-    },
-    {
-      icon: <Phone className="h-6 w-6 text-[#0f1729]" />,
-      label: `+${personalData.contact}`,
-    },
-    {
-      icon: <MapPin className="h-6 w-6 text-[#0f1729]" />,
-      label: personalData.location,
-    },
-  ];
-
-  const socialLinks = [
-    {
-      href: personalData.github,
-      icon: <Github className="h-6 w-6 text-[#0f1729]" />,
-    },
-    {
-      href: personalData.linkedin,
-      icon: <Linkedin className="h-6 w-6 text-[#0f1729]" />,
-    },
-    {
-      href: personalData.gmail,
-      icon: <Mail className="h-6 w-6 text-[#0f1729]" />,
-    },
-    {
-      href: personalData.facebook,
-      icon: <Facebook className="h-6 w-6 text-[#0f1729]" />,
-    },
-  ];
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,16 +31,18 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validateEmail(formData.email)) {
-      setEmailError(true);
+    setSubmitted(true);
+
+    if (!formData.name || !validateEmail(formData.email)) {
+      setEmailError(!validateEmail(formData.email));
       return;
     }
+
+    toast.success("Message sent successfully!");
     console.log("Form submitted:", formData);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+
+    setFormData({ name: "", email: "", message: "" });
+    setSubmitted(false);
   };
 
   const formFields = [
@@ -88,21 +51,30 @@ export default function Contact() {
       label: "Your Name:",
       type: "text",
       placeholder: "Enter your name",
+      required: true,
       value: formData.name,
       onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
         setFormData({ ...formData, name: e.target.value }),
+      error: submitted && formData.name === "" ? "Name is required!" : "",
     },
     {
       id: "email",
       label: "Your Email:",
       type: "email",
       placeholder: "Enter your email",
+      required: true,
       value: formData.email,
       onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({ ...formData, email: e.target.value });
         setEmailError(false);
       },
       onBlur: handleEmailBlur,
+      error:
+        submitted && formData.email === ""
+          ? "Email is required!"
+          : emailError
+            ? "Enter a valid email address"
+            : "",
     },
   ];
 
@@ -143,13 +115,14 @@ export default function Contact() {
                       placeholder={field.placeholder}
                       value={field.value}
                       onChange={field.onChange}
+                      required={field.required}
                       onBlur={field.onBlur}
                       aria-invalid={field.id === "email" && emailError}
                       className="border-[#2a3a5a] text-white placeholder:text-gray-400 focus:border-[#00d9ff] focus:ring-[#00d9ff]"
                     />
-                    {field.id === "email" && emailError && (
+                    {submitted && formData.message === "" && (
                       <p className="text-red-500 text-sm mt-2">
-                        Please provide a valid email!
+                        Message is required!
                       </p>
                     )}
                   </div>
@@ -177,10 +150,10 @@ export default function Contact() {
                 <div className="flex justify-center pt-2">
                   <Button
                     type="submit"
-                    className="bg-gradient-to-r from-[#e91e8c] to-[#8b5cf6] hover:from-[#d11a7d] hover:to-[#7c4ee0] text-white font-medium px-8 py-6 rounded-full text-base uppercase tracking-wide flex items-center"
+                    className="bg-gradient-to-r from-[#e91e8c] to-[#8b5cf6] hover:from-[#d11a7d] hover:to-[#7c4ee0] text-white font-medium px-8 py-6 rounded-full text-base uppercase tracking-wide flex items-center "
                   >
                     Send Message
-                    <Send className="ml-2 h-5 w-5" />
+                    <Send className="h-5 w-5" />
                   </Button>
                 </div>
               </form>

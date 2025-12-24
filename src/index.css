@@ -117,44 +117,81 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
 @keyframes float {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
-    transform: translateY(-8px); /* halka vertical slide */
+    transform: translateY(-8px);
+    /* halka vertical slide */
   }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
 .bg-gradient-main {
   background-image: var(--gradient-main);
 }
+
 html {
   scroll-behavior: smooth;
 }
+
 .bg-experience-gradient {
-  background-image: linear-gradient(
-    rgba(11, 15, 36, 0.95),
-    rgba(23, 17, 52, 0.75)
-  );
+  background-image: linear-gradient(rgba(11, 15, 36, 0.95),
+      rgba(23, 17, 52, 0.75));
 }
 
 @keyframes scrollX {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
+}
+
+/* float-wave keyframes */
+@keyframes floatWave {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* base animation for all cards */
+.card-animate {
+  animation: floatWave 2s ease-in-out infinite;
+}
+
+/* delays for staggered columns */
+.delay-0 {
+  animation-delay: 0s;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
 }
 
 .animate-scrollX {
@@ -162,6 +199,7 @@ html {
   width: max-content;
   animation: scrollX 25s linear infinite;
 }
+
 .animate-scrollX:hover {
   animation-play-state: paused;
 }

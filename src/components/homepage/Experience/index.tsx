@@ -1,5 +1,6 @@
 import { Images } from "@/assets";
 import { SkillsBar } from "@/components/layout/SkillsBar";
+import { cn } from "@/lib/utils";
 import { skill, skillsData } from "@/utils/skillsData";
 
 export function Experience() {
@@ -23,10 +24,13 @@ export function Experience() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-0">
-            {skillsData.map((item) => (
+            {skillsData.map((item, index) => (
               <div
                 key={item.id}
-                className="transform transition-all duration-300 hover:-translate-y-3"
+                className={cn(
+                  "transform transition-all duration-300 hover:-translate-y-3 card-animate",
+                  `delay-${index % 3}`
+                )}
               >
                 <SkillsBar
                   skillName={item.skillName}
