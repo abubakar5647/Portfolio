@@ -5,12 +5,14 @@ import { Experience } from "./components/homepage/Experience";
 import { HeroSection } from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import { ScrollToTopButton } from "./components/layout/ScrollToTopButton";
+import { ResumeSection } from "./components/homepage/resume-section";
 
 function App() {
   return (
     <>
       <HeroSection />
       <About />
+      <ResumeSection />
       <Experience />
       <Projects />
       <Contact />

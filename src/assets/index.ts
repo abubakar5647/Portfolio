@@ -23,6 +23,7 @@ import Node from "./images/node.png";
 import MySQL from "./images/mySQL.png";
 import Task from "./images/task.jpg";
 import Buycx from "./images/buycx.jpg";
+import abubakar from "./abubakar.pdf";
 
 export const Images = {
   Hero,
@@ -50,4 +51,8 @@ export const Images = {
   MySQL,
   Task,
   Buycx,
+};
+
+export const PDF = {
+  abubakar,
 };
