@@ -23,6 +23,8 @@ import Node from "./images/node.png";
 import MySQL from "./images/mySQL.png";
 import Task from "./images/task.jpg";
 import Buycx from "./images/buycx.jpg";
+import Construction from "./images/construction.jpg";
+
 import abubakar from "./abubakar.pdf";
 
 export const Images = {
@@ -51,6 +53,8 @@ export const Images = {
   MySQL,
   Task,
   Buycx,
+  Construction,
+
 };
 
 export const PDF = {

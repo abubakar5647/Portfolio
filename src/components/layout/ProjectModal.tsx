@@ -9,6 +9,7 @@ interface Project {
   image: string;
   description: string;
   technologies: string[];
+  link?: string;
 }
 
 interface ProjectModalProps {
@@ -60,7 +61,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <img
               src={project.image || "/placeholder.svg"}
               alt={project.title}
-              className="object-cover"
+              className="object-cover h-full w-full"
             />
           </div>
 
@@ -91,23 +92,42 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
           </div>
 
-          {/* Status */}
-          <div className="flex items-center gap-2">
-            <span className="text-slate-400">Status:</span>
-            <span
-              className={cn(
-                "px-3 py-1 rounded-full text-sm font-medium",
-                project.status === "In Development" &&
-                  "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
-                project.status === "Completed" &&
-                  "bg-green-500/20 text-green-400 border border-green-500/30",
-                project.status === "In Progress" &&
-                  "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-              )}
-            >
-              {project.status}
-            </span>
+          {/* Status and Link */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-8">
+            <div className="flex items-center gap-2">
+              <span className="text-slate-400">Status:</span>
+              <span
+                className={cn(
+                  "px-3 py-1 rounded-full text-sm font-medium",
+                  project.status === "In Development" &&
+                    "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30",
+                  project.status === "Completed" &&
+                    "bg-green-500/20 text-green-400 border border-green-500/30",
+                  project.status === "In Progress" &&
+                    "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                )}
+              >
+                {project.status}
+              </span>
+            </div>
+
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "inline-flex items-center justify-center px-6 py-2.5 rounded-xl text-white font-semibold transition-all duration-300",
+                  "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500",
+                  "shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40",
+                  "transform hover:-translate-y-0.5"
+                )}
+              >
+                View Project
+              </a>
+            )}
           </div>
+
         </div>
       </div>
     </div>

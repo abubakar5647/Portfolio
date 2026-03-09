@@ -7,7 +7,9 @@ interface Project {
   image: string;
   description: string;
   technologies: string[];
+  link?: string;
 }
+
 
 interface ProjectCardProps {
   project: Project;

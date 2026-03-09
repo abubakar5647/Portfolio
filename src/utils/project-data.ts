@@ -18,7 +18,9 @@ export const projects = [
       "Redux",
       "Socila Login",
     ],
+    link: "https://buycex-umar.vercel.app/",
   },
+
   {
     id: 2,
     title: "DiveInMobile",
@@ -35,7 +37,9 @@ export const projects = [
       "Typescript",
       "Google Map",
     ],
+    link: "https://play.google.com/store/apps/details?id=com.divein.appp",
   },
+
   {
     id: 3,
     title: "Rental Car Mobile",
@@ -56,7 +60,9 @@ export const projects = [
       "Node.js",
       "MongoDB",
     ],
+    link: "https://github.com/abubakar5647/Rental-Car-Mobile",
   },
+
   {
     id: 4,
     title: "Education App",
@@ -73,7 +79,9 @@ export const projects = [
       "PostgreSQL",
       "Socket.io",
     ],
+    link: "https://github.com/abubakar5647/EDU-app",
   },
+
   {
     id: 5,
     title: "Portfolio",
@@ -82,7 +90,9 @@ export const projects = [
     description:
       "A modern and responsive personal portfolio website built with React, Tailwind CSS, JavaScript, and TypeScript. It showcases my skills, projects, and professional journey in a clean, user-friendly interface. Designed with a focus on performance and mobile-first responsiveness, this project highlights my ability to build scalable and visually appealing web applications.",
     technologies: ["React Js", "Tailwind Css", "Typescript", "Javascript"],
+    link: "https://github.com/abubakar5647/Portfolio",
   },
+
   {
     id: 6,
     title: "Macca-app",
@@ -120,4 +130,25 @@ export const projects = [
       "Axios",
     ],
   },
+  {
+    id: 8,
+    title: "Construction Management System",
+    status: "Completed",
+    image: Images.Construction,
+    description:
+      "A web-based construction management system designed to streamline project planning, resource allocation, document management, and team communication. The system enables administrators, managers, and clients to manage projects, assign resources, track progress, and securely store construction documents, improving operational efficiency, transparency, and collaboration across all stakeholders.",
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redux Toolkit",
+      "Cloudinary",
+      "Material UI",
+    ],
+    link: "https://appsoapro.techbytech.tech/login",
+  },
 ];
+
+
