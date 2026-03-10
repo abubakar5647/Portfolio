@@ -3,9 +3,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { contactInfo, personalData } from "@/utils/personal-data";
 import { socialLinks } from "@/utils/socialLinks";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,6 +20,7 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -29,7 +35,7 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.message === "") {
       toast.error("Message is required!");
@@ -42,11 +48,30 @@ export default function Contact() {
       return;
     }
 
-    toast.success("Message sent successfully!");
-    console.log("Form submitted:", formData);
+    setLoading(true);
 
-    setFormData({ name: "", email: "", message: "" });
-    setSubmitted(false);
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          title: formData.name,
+        },
+        PUBLIC_KEY
+      );
+
+      toast.success("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+      setSubmitted(false);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      toast.error("Failed to send message. Please try again!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const formFields = [
@@ -154,10 +179,20 @@ export default function Contact() {
                 <div className="flex justify-center pt-2">
                   <Button
                     type="submit"
-                    className="bg-gradient-to-r from-[#e91e8c] to-[#8b5cf6] hover:from-[#d11a7d] hover:to-[#7c4ee0] text-white font-medium px-8 py-6 rounded-full text-base uppercase tracking-wide flex items-center "
+                    disabled={loading}
+                    className="bg-gradient-to-r from-[#e91e8c] to-[#8b5cf6] hover:from-[#d11a7d] hover:to-[#7c4ee0] text-white font-medium px-8 py-6 rounded-full text-base uppercase tracking-wide flex items-center disabled:opacity-60 disabled:cursor-not-allowed"
                   >
-                    Send Message
-                    <Send className="h-5 w-5" />
+                    {loading ? (
+                      <>
+                        Sending...
+                        <Loader2 className="h-5 w-5 animate-spin" />
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="h-5 w-5" />
+                      </>
+                    )}
                   </Button>
                 </div>
               </form>
