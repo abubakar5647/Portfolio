@@ -23,6 +23,44 @@ export const projects = [
 
   {
     id: 2,
+    title: "Construction Management System",
+    status: "Completed",
+    image: Images.Construction,
+    description:
+      "Created a construction workflow management platform that allows contractors and clients to manage projects, track progress, and streamline communication. Focused on intuitive UI, role-based access, and automated data handling to improve project visibility and operational efficiency.",
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Redux Toolkit",
+      "Cloudinary",
+      "Material UI",
+    ],
+    link: "https://appsoapro.techbytech.tech/login",
+  },
+
+  {
+    id: 3,
+    title: "ThisLinks",
+    status: "In Development",
+    image: Images.ThisLinks,
+    description:
+      "ThisLinks is a job management and task tracking system that enables organizations to assign, monitor, and complete work in real time. Employees receive job assignments through the platform and can log job start/completion with time tracking and status updates visible to supervisors. The system uses Firebase Realtime Database and Firebase Cloud Messaging for the mobile app, providing instant data sync and push notifications for new tasks, ensuring transparency and efficient progress tracking across teams.",
+    technologies: [
+      "React Native",
+      "Firebase Realtime Database",
+      "Firebase Cloud Messaging",
+      "Redux Toolkit",
+      "TypeScript",
+      "Push Notifications",
+    ],
+    link: "https://thislinks.online/",
+  },
+
+  {
+    id: 4,
     title: "DiveInMobile",
     status: "Completed",
     image: Images.DiveIn,
@@ -41,7 +79,7 @@ export const projects = [
   },
 
   {
-    id: 3,
+    id: 5,
     title: "Rental Car Mobile",
     status: "In Development",
     image: Images.Rental,
@@ -64,7 +102,7 @@ export const projects = [
   },
 
   {
-    id: 4,
+    id: 6,
     title: "Education App",
     status: "Completed",
     image: Images.EDU,
@@ -83,7 +121,7 @@ export const projects = [
   },
 
   {
-    id: 5,
+    id: 7,
     title: "Portfolio",
     status: "Completed",
     image: Images.Portfolio,
@@ -94,7 +132,7 @@ export const projects = [
   },
 
   {
-    id: 6,
+    id: 8,
     title: "Macca-app",
     status: "In Development",
     image: Images.Macca,
@@ -113,7 +151,7 @@ export const projects = [
     ],
   },
   {
-    id: 7,
+    id: 9,
     title: "Task Manager",
     status: "Completed",
     image: Images.Task,
@@ -129,25 +167,6 @@ export const projects = [
       "MongoDB",
       "Axios",
     ],
-  },
-  {
-    id: 8,
-    title: "Construction Management System",
-    status: "Completed",
-    image: Images.Construction,
-    description:
-      "A web-based construction management system designed to streamline project planning, resource allocation, document management, and team communication. The system enables administrators, managers, and clients to manage projects, assign resources, track progress, and securely store construction documents, improving operational efficiency, transparency, and collaboration across all stakeholders.",
-    technologies: [
-      "React.js",
-      "Tailwind CSS",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Redux Toolkit",
-      "Cloudinary",
-      "Material UI",
-    ],
-    link: "https://appsoapro.techbytech.tech/login",
   },
 ];
 

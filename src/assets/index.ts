@@ -24,6 +24,7 @@ import MySQL from "./images/mySQL.png";
 import Task from "./images/task.jpg";
 import Buycx from "./images/buycx.jpg";
 import Construction from "./images/construction.jpg";
+import ThisLinks from "./images/thislinl.png";
 
 import abubakar from "./abubakar.pdf";
 
@@ -54,6 +55,7 @@ export const Images = {
   Task,
   Buycx,
   Construction,
+  ThisLinks,
 
 };
 
