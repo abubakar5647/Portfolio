@@ -6,10 +6,12 @@ import { HeroSection } from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import { ScrollToTopButton } from "./components/layout/ScrollToTopButton";
 import { ResumeSection } from "./components/homepage/resume-section";
+import { OfflineModal } from "./components/layout/OfflineModal";
 
 function App() {
   return (
     <>
+      <OfflineModal />
       <HeroSection />
       <About />
       <ResumeSection />
