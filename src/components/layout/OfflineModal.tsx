@@ -1,12 +1,26 @@
 import { useEffect, useState } from "react";
-import { WifiOff, RefreshCw } from "lucide-react";
+import { WifiOff, X, Wifi } from "lucide-react";
 
 export const OfflineModal = () => {
   const [isOffline, setIsOffline] = useState(!navigator.onLine);
+  const [isVisible, setIsVisible] = useState(!navigator.onLine);
+  const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
-    const handleOffline = () => setIsOffline(true);
-    const handleOnline = () => setIsOffline(false);
+    const handleOffline = () => {
+      setIsOffline(true);
+      setIsVisible(true);
+      setIsDismissed(false);
+    };
+    const handleOnline = () => {
+      setIsOffline(false);
+      // Show "back online" briefly
+      setIsVisible(true);
+      setIsDismissed(false);
+      setTimeout(() => {
+        setIsVisible(false);
+      }, 3000);
+    };
 
     window.addEventListener("offline", handleOffline);
     window.addEventListener("online", handleOnline);
@@ -17,55 +31,53 @@ export const OfflineModal = () => {
     };
   }, []);
 
-  if (!isOffline) return null;
+  // Auto-hide offline banner after 5 seconds
+  useEffect(() => {
+    if (isOffline && isVisible && !isDismissed) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isOffline, isVisible, isDismissed]);
+
+  if (!isVisible || isDismissed) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
-      <div className="relative mx-4 w-full max-w-md overflow-hidden rounded-2xl border border-white/10 bg-[#0f0f1a] p-8 shadow-2xl">
-        <div className="absolute -top-12 left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-gradient-to-br from-purple-500/30 via-blue-500/20 to-cyan-400/10 blur-3xl" />
-
-        <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 ring-1 ring-white/10">
-          <div className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-purple-600 to-blue-500 shadow-lg shadow-purple-500/25">
-            <WifiOff className="h-7 w-7 text-white" strokeWidth={2.5} />
-          </div>
+    <div
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
+      }`}
+    >
+      <div
+        className={`flex items-center justify-center gap-3 px-4 py-2.5 text-sm font-medium text-white shadow-lg ${
+          isOffline
+            ? "bg-gradient-to-r from-purple-700 via-violet-600 to-blue-600"
+            : "bg-gradient-to-r from-emerald-600 via-green-500 to-teal-500"
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          {isOffline ? (
+            <>
+              <WifiOff className="h-4 w-4 animate-pulse" />
+              <span>You're offline — Don't worry, portfolio is still available!</span>
+            </>
+          ) : (
+            <>
+              <Wifi className="h-4 w-4" />
+              <span>Back online ✓</span>
+            </>
+          )}
         </div>
-
-        <h2 className="relative mb-2 text-center text-2xl font-bold text-white">
-          You're Offline
-        </h2>
-        <p className="mb-6 text-center text-sm leading-relaxed text-gray-400">
-          It looks like your device has lost its internet connection. Please
-          check your Wi-Fi or mobile data and try again.
-        </p>
-
-        <div className="mb-6 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-        <div className="mb-6 space-y-3 text-sm text-gray-500">
-          <div className="flex items-start gap-2">
-            <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500" />
-            <span>Check your Wi-Fi or Ethernet connection</span>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-blue-500" />
-            <span>Try restarting your router or modem</span>
-          </div>
-          <div className="flex items-start gap-2">
-            <span className="mt-0.5 inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400" />
-            <span>Move closer to your Wi-Fi access point</span>
-          </div>
-        </div>
-
         <button
-          onClick={() => window.location.reload()}
-          className="group flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-purple-500/20 transition-all duration-300 hover:shadow-purple-500/40 hover:brightness-110 active:scale-[0.98] cursor-pointer"
+          onClick={() => setIsDismissed(true)}
+          className="ml-2 rounded-full p-0.5 transition-colors hover:bg-white/20 cursor-pointer"
+          aria-label="Dismiss"
         >
-          <RefreshCw className="h-4 w-4 transition-transform duration-500 group-hover:rotate-180" />
-          Retry Connection
+          <X className="h-3.5 w-3.5" />
         </button>
-
-        <div className="absolute -bottom-20 -right-20 h-40 w-40 rounded-full border border-purple-500/10 animate-pulse" />
-        <div className="absolute -top-10 -left-10 h-32 w-32 rounded-full border border-blue-500/10 animate-pulse" />
       </div>
     </div>
   );
 };
+
